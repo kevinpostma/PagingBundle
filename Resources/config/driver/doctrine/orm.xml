@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="kp.model.paging.class">Kp\Bundle\PagingBundle\Entity\Paging</parameter>
+
+        <parameter key="kp.repository.paging.class">Kp\Bundle\PagingBundle\Repository\PagingRepository</parameter>
+    </parameters>
+
+    <services>
+        <service id="kp.manager.paging" alias="doctrine.orm.entity_manager" />
+        <service id="kp.repository.paging" class="%kp.repository.paging.class%">
+            <argument type="service" id="kp.manager.paging" />
+            <argument type="service">
+                <service
+                    factory-service="kp.manager.paging"
+                    factory-method="getClassMetadata"
+                    class="Doctrine\ORM\Mapping\ClassMetadata"
+                >
+                    <argument>%kp.model.paging.class%</argument>
+                </service>
+            </argument>
+        </service>
+    </services>
+</container>

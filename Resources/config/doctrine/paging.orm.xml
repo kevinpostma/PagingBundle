@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+    
+
+        
+        
+        <field name="createdAt" type="datetime" />
+        
+        <field name="paging" type="text" />
+        
+    </entity>
+
+</doctrine-mapping>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                                      http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="Kp\Bundle\PagingBundle\Model\Paging">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="active" column="active" type="boolean" />
+        
+        <many-to-one field="author" target-entity="Kp\CoreBundle\Model\User" />
+        
+        <field name="createdAt" type="datetime" />
+        
+        <field name="paging" type="text" />
+        
+    </mapped-superclass>
+
+</doctrine-mapping>

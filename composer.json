@@ -1,0 +1,41 @@
+{
+    "name": "kevinpostma/paging-bundle",
+    "type": "symfony-bundle",
+    "description": "PagingBundle for Symfony2.",
+    "keywords": ["paging", "pagingging", "pagings", "kevinpostma", "kp"],
+    "homepage": "http://kpict.nl",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Postma",
+            "email": "info@kpict.nl",
+            "homepage": "http://kpict.nl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle":        "~2.3",
+        "sylius/resource-bundle":          "0.3.*"
+    },
+    "require-dev": {
+        "phpspec/phpspec":    "2.0.*@dev",
+        "doctrine/orm":       "~2.2",
+        "symfony/form":       "~2.3",
+        "symfony/validator":  "~2.3"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-0": { "Kp\\Bundle\\PagingBundle": "" }
+    },
+    "target-dir": "Kp/Bundle/PagingBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
+
+

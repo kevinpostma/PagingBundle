@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+
+    <parameters>
+            <parameter key="kp.form.type.paging.class">Kp\Bundle\PagingBundle\Form\Type\PagingType</parameter>
+    </parameters>
+
+    <services>
+        <service id="kp.controller.paging" class="%kp.controller.paging.class%">
+            <argument>kp</argument>
+            <argument>paging</argument>
+            <argument>KpPagingBundle:Paging</argument>
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+        
+        <service id="kp.form.type.promotion" class="%kp.form.type.paging.class%">
+            <argument>%kp.model.paging.class%</argument>
+            <tag name="form.type" alias="kp_paging" />
+        </service>
+    </services>
+
+</container>
